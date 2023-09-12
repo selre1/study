@@ -29,9 +29,12 @@ deploy:
     bucket: springboot-webservice-buket
     region: ap-northeast-2
     skip_cleanup: true
-    acl: private
+    acl: public_read
     local_dir: deploy
     wait-until-deployed: true
+    on:
+      repo: selre1/study
+      branch: main
 
 # CI 실행 완료시 메일로 알람
 notifications:
