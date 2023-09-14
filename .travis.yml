@@ -18,9 +18,12 @@ before_install:
 script: "./gradlew clean build -x test"
 
 before_deploy:
-  - zip -r springboot-web-practise *
-  - mkdir -p deploy
-  - mv springboot-web-practise.zip deploy/springboot-web-practise.zip
+  - mkdir -p before-deploy
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-deploy *
+  - mv before-deploy/springboot-web-practise.zip deploy/springboot-web-practise.zip
 
 deploy:
   - provider: s3
