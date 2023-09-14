@@ -46,6 +46,9 @@ deploy:
     deployment_group: springboot-web-practise
     region: ap-northeast-2
     wait-until-deployed: true
+    on:
+      repo: selre1/study
+      branch: main
 
 # CI 실행 완료시 메일로 알람
 notifications:
